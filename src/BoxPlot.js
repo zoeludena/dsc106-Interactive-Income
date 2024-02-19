@@ -60,7 +60,7 @@ export function drawBoxPlot(data, selectedOccupation) {
     // Define color scale
     const colorScale = d3.scaleOrdinal()
         .domain(['1', '2'])
-        .range(['blue', 'pink']);
+        .range(['#0066FF', '#FF6699']);
 
     // Set up Y scale based on the minimum and maximum median values
     var minValue = d3.min([...medianValuesMale, ...medianValuesFemale], d => d.Min);
@@ -89,7 +89,7 @@ export function drawBoxPlot(data, selectedOccupation) {
               .attr('height', yScale(q1) - yScale(q3))
               .attr("stroke", "black")
               .attr("fill", "none")
-              .attr('fill', gender === '1' ? 'blue' : 'pink');
+              .attr('fill', gender === '1' ? '#0066FF' : '#FF6699');
 
           // Draw median line
           svg.append('line')
