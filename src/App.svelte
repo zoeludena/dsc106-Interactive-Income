@@ -283,6 +283,34 @@ function drawLine(svg, data, group, width, height) {
     font-family: "Kode Mono", monospace;
     top: 0;
     left: 0;
+    width: 500px; /* Initial width of the dropdown menu */
+  }
+
+  /* Add media queries here */
+  @media screen and (max-width: 800px) {
+    #dropdown {
+      width: 400px; /* Adjust the width for smaller screens */
+    }
+  }
+  
+
+  /* Add media queries here */
+  @media screen and (max-width: 700px) {
+    #dropdown {
+      width: 300px; /* Adjust the width for smaller screens */
+    }
+  }
+
+  @media screen and (max-width: 550px) {
+    #dropdown {
+      width: 200px; /* Adjust the width for smaller screens */
+    }
+  }
+
+  @media screen and (max-width: 460px) {
+    #dropdown {
+      width: 80px; /* Further adjust the width for even smaller screens */
+    }
   }
 
   #my_dataviz {
