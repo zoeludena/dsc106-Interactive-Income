@@ -358,6 +358,7 @@ function drawLine(svg, data, group, width, height) {
   <!-- Visualization container -->
   <div id="my_dataviz"></div>
 
+<!-- Button -->
     <button on:click={togglePlot} style="{selectedGroup !== 'All Groups' ? 'display: block;' : 'display: none;'}">
     {#if showLinePlot}
       Show Box Plot
