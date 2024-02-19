@@ -112,7 +112,7 @@
       .attr("dy", "0.75em")
       .style("text-anchor", "middle")
       .style("font-size", "1.5em") // Adjust font size as needed
-      .text("Income Per Gender for All Groups");
+      .text("Income Per Gender for All Occupations");
 
     // Define the scales for x and y axes
     var xScale = d3.scaleBand()
