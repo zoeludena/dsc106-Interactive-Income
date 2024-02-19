@@ -358,8 +358,16 @@ function drawLine(svg, data, group, width, height) {
   <!-- Visualization container -->
   <div id="my_dataviz"></div>
 
+    <button on:click={togglePlot} style="{selectedGroup !== 'All Groups' ? 'display: block;' : 'display: none;'}">
+    {#if showLinePlot}
+      Show Box Plot
+    {:else}
+      Show Line Plot
+    {/if}
+  </button>
+
 <!-- Slider container -->
-<div class="slider-container" style="{selectedGroup !== 'All Groups' ? 'display: flex; flex-direction: column; align-items: center; position: absolute; top: calc(90vh); left: 54.25%; transform: translateX(-50%);' : 'display: none;'}">
+<!-- <div class="slider-container" style="{selectedGroup !== 'All Groups' ? 'display: flex; flex-direction: column; align-items: center; position: absolute; top: calc(90vh); left: 54.25%; transform: translateX(-50%);' : 'display: none;'}">
   <div class="slider" style="{selectedGroup !== 'All Groups' ? 'display: block; width: 200px;' : 'display: none;'}">
     <input type="range" min="0" max="1" step="1" bind:value={showLinePlot} on:input={togglePlot}>
   </div>
@@ -367,7 +375,7 @@ function drawLine(svg, data, group, width, height) {
     <span style="margin-right: 80px;">Line Plot</span>
     <span>Box Plot</span>
   </div>
-</div>
+</div> -->
 
   <div class="legend">
     <svg width="100" height="70">
