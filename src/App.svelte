@@ -322,12 +322,12 @@ function drawLine(svg, data, group, width, height) {
   }
 
   .legend {
-    position: absolute;
-    bottom: -140px; /* Adjust bottom position as needed */
-    left: 90px; /* Adjust left position as needed */
-    transform: translate(-50%, 0); /* Center the legend horizontally */
-    font-size: x-small;
-  }
+  position: fixed;
+  top: 40px; /* Adjust bottom position as needed */
+  left: 0; /* Adjust left position as needed */
+  font-size: x-small;
+  padding-left: 110px;
+}
 
   .team-info {
     position: fixed;
