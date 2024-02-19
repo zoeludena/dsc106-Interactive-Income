@@ -328,11 +328,7 @@ function drawLine(svg, data, group, width, height) {
 
   .legend {
   position: absolute;
-<<<<<<< HEAD
   bottom: -500px; /* Adjust bottom position as needed */
-=======
-  bottom: -380px; /* Adjust bottom position as needed */
->>>>>>> 54141fbca4f35449e6060d08ef51ea0f2b66667f
   left: 0; /* Adjust left position as needed */
   font-size: x-small;
   padding-left: 110px;
@@ -340,11 +336,7 @@ function drawLine(svg, data, group, width, height) {
 
   .team-info {
     position: absolute;
-<<<<<<< HEAD
     bottom: -500px;
-=======
-    bottom: -380px;
->>>>>>> 54141fbca4f35449e6060d08ef51ea0f2b66667f
     right: 0;
     padding-right: 30px;
     /* font-family: 'Times New Roman', Times, serif; Set the font for the team info */
@@ -360,11 +352,7 @@ function drawLine(svg, data, group, width, height) {
 
   .readme {
   position: absolute;
-<<<<<<< HEAD
   top: 950px; /* Adjust the position from the bottom as needed */
-=======
-  top: 700px; /* Adjust the position from the bottom as needed */
->>>>>>> 54141fbca4f35449e6060d08ef51ea0f2b66667f
   left: 50%; /* Center horizontally */
   transform: translateX(-50%);
   font-family: "Kode Mono", monospace; /* Set the font family */
@@ -464,7 +452,6 @@ function drawLine(svg, data, group, width, height) {
 <div class="readme">
   <!-- Add your words here -->
   <p>Our Writeup:</p>
-<<<<<<< HEAD
 
   <br>
 
@@ -475,9 +462,6 @@ function drawLine(svg, data, group, width, height) {
   <p>Our plot is interactive in a number of ways. On the homepage or “All Occupations” of the drop down menu if you hover over a line it will highlight that line and the other gender in that occupation. The occupation appears below the title. You can also click on the line you are hovering over and it will take you to the plot of just that specific line. It is an overview/high level of all the other pages in our visualization. It also invites the user to compare the salaries between different corporations. On the other pages in the drop down menu, if one were to hover over a datapoint on the line they are told the sex and median income for that profession. The drop down menu allows for easy access to choosing an occupational group. This allows someone to type and/or select the option they are most curious about. Finally, we added a button in the top right corner that allows a user to switch between a box plot representation and a line plot representation of the data. We thought a box plot would allow users to see the distribution of data more closely. If one were to hover over the box plot they would find each left half of the box plot would have a scatter plot appear. These are our data points for that year in that specific occupation. This allows an even closer look at the data we collected. For all of our plots we chose to adhere to the colors typically associated with Male and Female, blue and pink respectively. We choose colors from the Web Safe Color Chart HTML website. The blue is #0066FF and the pink is #FF6699. Under a color blind vision simulator the colors were easily distinguishable as different, so we thought they would work best. It is important to us that the colors we choose are web safe and easily discernible for everyone.</p>
 	<br>
   <p>Our group worked together to come up with our question and explored many different datasets. We settled on Anastasiya’s find of IPUMS because they allowed us to customize our dataset, which became tailored to answer our wage gap inquiries. Anastasiya worked on the initial research of the data and creation of box plots and interactivity features within the box plots. Since there is no box plot feature, she had to calculate everything and draw each line by hand, which took a little bit of time. The creation of box plots probably took around 8 hours. She also made sure that the transitions between plots were working. She worked on transitions between box plots and line plots, as well as the transition from all plots to line plots. This was a bit of a trial and error process and took an additional 5 hours. The most confusing thing was to make the graph responsive to windows of different sizes, but once that was done the rest of Anastasiya’s work was just time consuming rather than challenging. This took about 6 hours overall as well. Zoe spent about eight hours performing EDA and cleaning the data. She also spent about fifteen hours getting the dropdown menu to work, setting up the line plot drawing function, setting up labels/axes/keys, making the All Groups line plot, adjusting small elements (like positioning), having the drop down menu scale as the page does horizontally, and choosing colors for the graph. She also worked on this writeup for about an hour and a half. Zoe thought the thing that took the most time was setting up the line plot drawing functions. It took a lot of time to figure out the correct spacing for everything and how she could get D3 to code it together for each different group. She ended up having to code scatter plots first then connecting those circles with lines then making the circles really small. Maryam changed the drop down menu to make the occupations come up in alphabetical order (but it should still have all occupations as the first option). She also changed the font for everything on the visualization so that it is more consistent (we ended up going with Anastasiya’s choice of font because it looked better though). She also made it so that the y-axis would have the incomes as currencies. Maryam also added the team name and team members’ names and scaled the legend in addition to the team name/memebers names so that they do not overlap with the graph. There was a lot of back and forth with this because it looked like it was overlapping and not tidy on Maryam’s computer but different and more consistent on others’ computers, which is why it took a fair amount of time to do – about 5-6 total. Maryam also attempted to solve the problem of the overlapping labels for occupations in certain years that had a very similar median because it was difficult to read; this took several hours, but Maryam was unsuccessful at solving the problem – Zoe was then able to figure it out and solve the problem. Maryam also changed the size of the overall graph to make it smaller because we thought it would be better and there would be less overlapping, but we ended up keeping the size as is. Maryam also spent some time editing/proofreading this writeup. Overall, the part that took the most time was probably figuring out how the labels can come up without overlapping on top of each other.</p>
-=======
-  <p>In our interactive plot we explore the differences between male and female total pre-tax personal income. We were curious to know if the wage gap among different occupational groups were improving over time. To better explain our graphs it is important to first understand where our data came from. We collected our data from the <a href= 'https://usa.ipums.org/usa/'>Integrated Public Use Microdata Series (IPUMS) USA</a>. IPUMS is a reputable data source, as they collect and preserve U.S. census microdata. Our sample of data runs from the years 2017 to 2021, and contains the following information from census respondents: the number of hours worked, age, sex, marital status, income as an individual, income as a family, and the state the respondent lived in. Originally, our data had many different, specific occupations, so we decided to group the data based on the categories occupations were kept in by IPUMS. IPUMS updated how these groups were kept in 2018, so we had to make decisions to overlap them as specifically as possible: <a href = "https://usa.ipums.org/usa/volii/occ_acs.shtml">2000 to 2017 data</a> and <a href = "https://usa.ipums.org/usa/volii/occ2018.shtml">2018 onwards</a>. Some other cleaning Zoe did to prepare our data for the interactive visualization was replace missing values with NaNs, filter the data to only contain full-time workers (40 hours and more), and perform exploratory data analysis on the total pre-tax personal income, total pre-tax money income earned by a family from all sources, number of children, and sex. Zoe decided to standardize the income by taking the number of hours worked and the respondent’s income then making it as if they had only worked forty hours on average a week and were paid for those hours (original total pre-tax personal income divided by average number of hours worked then multiplied by forty).</p>
->>>>>>> 54141fbca4f35449e6060d08ef51ea0f2b66667f
 </div>
 
 </div>
