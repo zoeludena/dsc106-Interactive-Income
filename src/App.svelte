@@ -9,22 +9,21 @@
   let selectedGroup = "All Groups";
   let svgWidth = 0;
   let svgHeight = 0;
-  let showLinePlot = 0;
+  let showLinePlot = true;
 
 
-  function togglePlot(event) {
-    if (typeof event.target !== 'undefined') {
-      showLinePlot = event.target.value;
-    }
-    else {
-      showLinePlot = event;
-    }
-    let cond = showLinePlot > 0 ? false: true;
-    //showLinePlot = !showLinePlot;
+  function togglePlot() {
+    // if (typeof event.target !== 'undefined') {
+    //   showLinePlot = event.target.value;
+    // }
+    // else {
+    //   showLinePlot = event;
+    // }
+    showLinePlot = !showLinePlot;
     if (selectedGroup === 'All Groups') {
       allGroups();
     } else {
-      if (cond) {
+      if (showLinePlot) {
         drawLinePlot(data, selectedGroup);
       } else {
         drawBoxPlot(data, selectedGroup);
@@ -41,7 +40,7 @@
       if (selectedGroup === 'All Groups') {
         allGroups();
       } else {
-        if (showLinePlot === 0) {
+        if (showLinePlot) {
           drawLinePlot(data, selectedGroup);
         } else {
           drawBoxPlot(data, selectedGroup);
@@ -112,7 +111,7 @@
       .attr("dy", "0.75em")
       .style("text-anchor", "middle")
       .style("font-size", "1.5em") // Adjust font size as needed
-      .text("Income Per Gender for All Groups");
+      .text("Income Per Gender for All Occupations");
 
     // Define the scales for x and y axes
     var xScale = d3.scaleBand()
@@ -128,12 +127,16 @@
     svg.append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(xScale))
-      .style("font-size", ".7em");
+      .style("font-size", ".7em")
+      .selectAll("text")
+      .style("font-family", '"Kode Mono", monospace');
 
     // Draw y axis
     svg.append("g")
       .call(d3.axisLeft(yScale).tickFormat(d3.format("$,.0f"))) // Format y-axis ticks as currency
-      .style("font-size", "0.7em");
+      .style("font-size", "0.7em")
+      .selectAll("text")
+      .style("font-family", '"Kode Mono", monospace');
 
     // Labels
     svg.append("text")
@@ -145,7 +148,7 @@
 
     svg.append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left - 50)
+      .attr("y", 0 - margin.left - 60)
       .attr("x", 0 - height / 2)
       .attr("dy", "1em")
       .style("text-anchor", "middle")
@@ -214,6 +217,7 @@ function drawLine(svg, data, group, width, height) {
         })
         .on("click", function() {
           selectedGroup = group;
+          showLinePlot = true;
           drawLinePlot(data, group);
           updateSvgDimensions();
         })
@@ -250,6 +254,7 @@ function drawLine(svg, data, group, width, height) {
         })
         .on("click", function() {
           selectedGroup = group;
+          showLinePlot = true;
             drawLinePlot(data, group);
             updateSvgDimensions();
         })
@@ -280,9 +285,37 @@ function drawLine(svg, data, group, width, height) {
 
   #dropdown {
     position: absolute;
-    /* font-family: 'Times New Roman', Times, serif; */
+    font-family: "Kode Mono", monospace;
     top: 0;
     left: 0;
+    width: 500px; /* Initial width of the dropdown menu */
+  }
+
+  /* Add media queries here */
+  @media screen and (max-width: 800px) {
+    #dropdown {
+      width: 400px; /* Adjust the width for smaller screens */
+    }
+  }
+  
+
+  /* Add media queries here */
+  @media screen and (max-width: 700px) {
+    #dropdown {
+      width: 300px; /* Adjust the width for smaller screens */
+    }
+  }
+
+  @media screen and (max-width: 550px) {
+    #dropdown {
+      width: 200px; /* Adjust the width for smaller screens */
+    }
+  }
+
+  @media screen and (max-width: 460px) {
+    #dropdown {
+      width: 80px; /* Further adjust the width for even smaller screens */
+    }
   }
 
   #my_dataviz {
@@ -294,17 +327,18 @@ function drawLine(svg, data, group, width, height) {
   }
 
   .legend {
-    position: absolute;
-    bottom: -140px; /* Adjust bottom position as needed */
-    left: 90px; /* Adjust left position as needed */
-    transform: translate(-50%, 0); /* Center the legend horizontally */
-    font-size: x-small;
-  }
+  position: absolute;
+  bottom: -500px; /* Adjust bottom position as needed */
+  left: 0; /* Adjust left position as needed */
+  font-size: x-small;
+  padding-left: 110px;
+}
 
   .team-info {
     position: absolute;
-    bottom: -200px;
-    right: 50px;
+    bottom: -500px;
+    right: 0;
+    padding-right: 30px;
     /* font-family: 'Times New Roman', Times, serif; Set the font for the team info */
   }
 
@@ -315,6 +349,25 @@ function drawLine(svg, data, group, width, height) {
   .team-info p:nth-child(n+2) {
     font-size: 13px; /* Adjust the font size for the team members' names */
   }
+
+  .readme {
+  position: absolute;
+  top: 950px; /* Adjust the position from the bottom as needed */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%);
+  font-family: "Kode Mono", monospace; /* Set the font family */
+  width: 80%;
+}
+
+  .readme p {
+    margin: 0;
+    font-size: 0.8em; /* Adjust the font size as needed */
+  }
+
+  .readme p:first-child {
+    font-weight: bold; /* Make the team name bold */
+  }
+
 
   /* .slider-container {
     display: flex;
@@ -343,7 +396,7 @@ function drawLine(svg, data, group, width, height) {
       showLinePlot = 0;
       allGroups();
     } else {
-      showLinePlot = 0;
+      showLinePlot = true;
       drawLinePlot(data, selectedGroup);
     }
   }}>
@@ -359,13 +412,14 @@ function drawLine(svg, data, group, width, height) {
   <div id="my_dataviz"></div>
 
 <!-- Button -->
-    <button on:click={togglePlot} style="{selectedGroup !== 'All Groups' ? 'display: block;' : 'display: none;'}">
-    {#if showLinePlot}
-      Show Box Plot
-    {:else}
-      Show Line Plot
-    {/if}
-  </button>
+<button on:click={togglePlot} style="{selectedGroup !== 'All Groups' ? 'display: block; font-family: \'Kode Mono\', monospace;' : 'display: none;'}">
+  {#if showLinePlot}
+    Show Box Plot
+  {:else}
+    Show Line Plot
+  {/if}
+</button>
+
 
 <!-- Slider container -->
 <!-- <div class="slider-container" style="{selectedGroup !== 'All Groups' ? 'display: flex; flex-direction: column; align-items: center; position: absolute; top: calc(90vh); left: 54.25%; transform: translateX(-50%);' : 'display: none;'}">
@@ -387,12 +441,27 @@ function drawLine(svg, data, group, width, height) {
     </svg>
   </div>
 
-  <!-- Team name and names -->
+<!-- Team name and names -->
+<!-- {#if selectedGroup === 'All Groups'} -->
   <div class="team-info">
-    <p>Graphic Girls</p>
-    <p>Anastasiya Markova</p>
-    <p>Maryam Almahasnah</p>
-    <p>Zoe Ludena</p>
+    <p style="text-align: center;">Graphic Girls</p>
+    <p>Anastasiya Markova, Maryam Almahasnah, Zoe Ludena</p>
   </div>
+<!-- {/if} -->
+
+<div class="readme">
+  <!-- Add your words here -->
+  <p>Our Writeup:</p>
+
+  <br>
+
+  <p>In our interactive plot we explore the differences between male and female total pre-tax personal income. We were curious to know if the wage gap among different occupational groups were improving over time. To better explain our graphs it is important to first understand where our data came from. We collected our data from the <a href= 'https://usa.ipums.org/usa/'>Integrated Public Use Microdata Series (IPUMS) USA</a>. IPUMS is a reputable data source, as they collect and preserve U.S. census microdata. Our sample of data runs from the years 2017 to 2021, and contains the following information from census respondents: the number of hours worked, age, sex, marital status, income as an individual, income as a family, and the state the respondent lived in. Originally, our data had many different, specific occupations, so we decided to group the data based on the categories occupations were kept in by IPUMS. IPUMS updated how these groups were kept in 2018, so we had to make decisions to overlap them as specifically as possible: <a href = "https://usa.ipums.org/usa/volii/occ_acs.shtml">2000 to 2017 data</a> and <a href = "https://usa.ipums.org/usa/volii/occ2018.shtml">2018 onwards</a>. Some other cleaning Zoe did to prepare our data for the interactive visualization was replace missing values with NaNs, filter the data to only contain full-time workers (40 hours and more), and perform exploratory data analysis on the total pre-tax personal income, total pre-tax money income earned by a family from all sources, number of children, and sex. Zoe decided to standardize the income by taking the number of hours worked and the respondent’s income then making it as if they had only worked forty hours on average a week and were paid for those hours (original total pre-tax personal income divided by average number of hours worked then multiplied by forty).</p>
+  <br>
+  <p> Ultimately, we decided to use a line plot to demonstrate the median pre-tax personal income for each sex. We believed a line plot is the correct mark to use because we were curious about how income changes over time. We debated using the mean income, but we were worried about the extreme outliers. We were hoping that by choosing the median we could avoid outliers and get people of similar salaries together. This would make it easier to compare the income of the two sexes.</p>
+  <br>
+  <p>Our plot is interactive in a number of ways. On the homepage or “All Occupations” of the drop down menu if you hover over a line it will highlight that line and the other gender in that occupation. The occupation appears below the title. You can also click on the line you are hovering over and it will take you to the plot of just that specific line. It is an overview/high level of all the other pages in our visualization. It also invites the user to compare the salaries between different corporations. On the other pages in the drop down menu, if one were to hover over a datapoint on the line they are told the sex and median income for that profession. The drop down menu allows for easy access to choosing an occupational group. This allows someone to type and/or select the option they are most curious about. Finally, we added a button in the top right corner that allows a user to switch between a box plot representation and a line plot representation of the data. We thought a box plot would allow users to see the distribution of data more closely. If one were to hover over the box plot they would find each left half of the box plot would have a scatter plot appear. These are our data points for that year in that specific occupation. This allows an even closer look at the data we collected. For all of our plots we chose to adhere to the colors typically associated with Male and Female, blue and pink respectively. We choose colors from the Web Safe Color Chart HTML website. The blue is #0066FF and the pink is #FF6699. Under a color blind vision simulator the colors were easily distinguishable as different, so we thought they would work best. It is important to us that the colors we choose are web safe and easily discernible for everyone.</p>
+	<br>
+  <p>Our group worked together to come up with our question and explored many different datasets. We settled on Anastasiya’s find of IPUMS because they allowed us to customize our dataset, which became tailored to answer our wage gap inquiries. Anastasiya worked on the initial research of the data and creation of box plots and interactivity features within the box plots. Since there is no box plot feature, she had to calculate everything and draw each line by hand, which took a little bit of time. The creation of box plots probably took around 8 hours. She also made sure that the transitions between plots were working. She worked on transitions between box plots and line plots, as well as the transition from all plots to line plots. This was a bit of a trial and error process and took an additional 5 hours. The most confusing thing was to make the graph responsive to windows of different sizes, but once that was done the rest of Anastasiya’s work was just time consuming rather than challenging. This took about 6 hours overall as well. Zoe spent about eight hours performing EDA and cleaning the data. She also spent about fifteen hours getting the dropdown menu to work, setting up the line plot drawing function, setting up labels/axes/keys, making the All Groups line plot, adjusting small elements (like positioning), having the drop down menu scale as the page does horizontally, and choosing colors for the graph. She also worked on this writeup for about an hour and a half. Zoe thought the thing that took the most time was setting up the line plot drawing functions. It took a lot of time to figure out the correct spacing for everything and how she could get D3 to code it together for each different group. She ended up having to code scatter plots first then connecting those circles with lines then making the circles really small. Maryam changed the drop down menu to make the occupations come up in alphabetical order (but it should still have all occupations as the first option). She also changed the font for everything on the visualization so that it is more consistent (we ended up going with Anastasiya’s choice of font because it looked better though). She also made it so that the y-axis would have the incomes as currencies. Maryam also added the team name and team members’ names and scaled the legend in addition to the team name/memebers names so that they do not overlap with the graph. There was a lot of back and forth with this because it looked like it was overlapping and not tidy on Maryam’s computer but different and more consistent on others’ computers, which is why it took a fair amount of time to do – about 5-6 total. Maryam also attempted to solve the problem of the overlapping labels for occupations in certain years that had a very similar median because it was difficult to read; this took several hours, but Maryam was unsuccessful at solving the problem – Zoe was then able to figure it out and solve the problem. Maryam also changed the size of the overall graph to make it smaller because we thought it would be better and there would be less overlapping, but we ended up keeping the size as is. Maryam also spent some time editing/proofreading this writeup. Overall, the part that took the most time was probably figuring out how the labels can come up without overlapping on top of each other.</p>
+</div>
 
 </div>
