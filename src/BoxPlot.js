@@ -159,7 +159,9 @@ export function drawBoxPlot(data, selectedOccupation) {
     svg.append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(xScale))
-      .style("font-size", ".7em");
+      .style("font-size", ".7em")
+      .selectAll("text")
+      .style("font-family", '"Kode Mono", monospace');
 
     // X-axis label
     svg.append("text")
@@ -172,12 +174,14 @@ export function drawBoxPlot(data, selectedOccupation) {
     // Draw Y-axis
     svg.append("g")
       .call(d3.axisLeft(yScale))
-      .style("font-size", "0.7em");
+      .style("font-size", "0.7em")
+      .selectAll("text")
+      .style("font-family", '"Kode Mono", monospace');
 
     // Y-axis label
     svg.append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left - 50)
+      .attr("y", 0 - margin.left - 60)
       .attr("x", 0 - height / 2)
       .attr("dy", "1em")
       .style("text-anchor", "middle")
