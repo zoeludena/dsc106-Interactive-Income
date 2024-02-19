@@ -326,16 +326,16 @@ function drawLine(svg, data, group, width, height) {
   }
 
   .legend {
-  position: fixed;
-  bottom: 15px; /* Adjust bottom position as needed */
+  position: absolute;
+  bottom: -380px; /* Adjust bottom position as needed */
   left: 0; /* Adjust left position as needed */
   font-size: x-small;
   padding-left: 110px;
 }
 
   .team-info {
-    position: fixed;
-    bottom: 0;
+    position: absolute;
+    bottom: -380px;
     right: 0;
     padding-right: 30px;
     /* font-family: 'Times New Roman', Times, serif; Set the font for the team info */
