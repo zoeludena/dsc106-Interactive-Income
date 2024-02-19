@@ -306,7 +306,7 @@ function drawLine(svg, data, group, width, height) {
     bottom: -30px;
     right: 50px;
     /* font-family: 'Times New Roman', Times, serif; Set the font for the team info */
-}
+  }
 
   .team-info p:first-child {
     font-weight: bold; /* Make the team name bold */
@@ -315,35 +315,33 @@ function drawLine(svg, data, group, width, height) {
   .team-info p:nth-child(n+2) {
     font-size: 13px; /* Adjust the font size for the team members' names */
   }
-  .vertical {
-    position: absolute;
-    top: 35%;
-    right: 0;
-    transform: rotate(90deg); /* Rotate slider to be vertical */
-    height: 100px; /* Set desired height */
-    margin-left: auto;
-    float: right;
-  }
-  .slider-container span{
-  writing-mode: horizontal-tb; /* Vertical text direction */
-  position: absolute;
-  top: 35%;
-  right: 0;
-  transform: rotate(270deg); /* Rotate slider to be vertical */
-  height: 100px; /* Set desired height */
-  margin-left: auto;
-  float: right;
-  margin: 15 20px;
-} 
-</style>
 
+  .slider-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .slider {
+    display: block;
+    margin-left: 20px;
+    width: 200px;
+  }
+
+  .slider-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+  }
+
+</style>
 <div id="container">
   <!-- Dropdown menu for selecting groups -->
   <select id="dropdown" bind:value={selectedGroup} on:change={() => {
     if (selectedGroup === 'All Groups') {
       showLinePlot = 0;
       allGroups();
-
     } else {
       showLinePlot = 0;
       drawLinePlot(data, selectedGroup);
@@ -353,28 +351,26 @@ function drawLine(svg, data, group, width, height) {
     <option value="All Groups">All Occupations</option>
     <!-- Existing options -->
     {#each [...new Set(data.map(d => d.Groups))].sort() as group}
-    <option value={group}>{group}</option>
+      <option value={group}>{group}</option>
     {/each}
   </select>
 
-
-  <!-- <button on:click={togglePlot} style="{selectedGroup !== 'All Groups' ? 'display: block;' : 'display: none;'}">
-    {#if showLinePlot}
-      Show Box Plot
-    {:else}
-      Show Line Plot
-    {/if}
-  </button> -->
-  <div class = 'slider-container' style="{selectedGroup !== 'All Groups' ? 'display: block;' : 'display: none;'}">
-    <span>Zoom</span>
-  <div class="slider vertical" style="{selectedGroup !== 'All Groups' ? 'display: block;' : 'display: none;'}">
-    <input type="range" min="0" max="1" step="1" bind:value={showLinePlot} on:input={togglePlot}>
-  </div>
-  <span></span>
-</div>
-
   <!-- Visualization container -->
   <div id="my_dataviz"></div>
+
+<!-- Slider container -->
+<div class="slider-container" style="{selectedGroup !== 'All Groups' ? 'display: flex; flex-direction: column; align-items: center; position: absolute; top: calc(90vh); left: 50%; transform: translateX(-50%);' : 'display: none;'}">
+  <div class="slider" style="{selectedGroup !== 'All Groups' ? 'display: block; width: 200px;' : 'display: none;'}">
+    <input type="range" min="0" max="1" step="1" bind:value={showLinePlot} on:input={togglePlot}>
+  </div>
+  <div class="slider-labels" style="display: flex; margin-top: 5px; margin-right: 50px;">
+    <span style="margin-right: 80px;">Line Plot</span>
+    <span>Box Plot</span>
+  </div>
+</div>
+
+
+
 
   <div class="legend">
     <svg width="100" height="70">
