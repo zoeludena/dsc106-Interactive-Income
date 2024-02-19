@@ -151,41 +151,64 @@ export function drawLinePlot(data, selectedOccupation) {
     });
 
 
-    // Add labels for male medians
-    svg.selectAll("text.male-label")
-      .data(medianValuesMale)
-      .enter().append("text")
-      .attr("class", "male-label")
-      .attr("id", d => `male-label-${d.Year}`)
-      .attr("x", d => xScale(d.Year) + xScale.bandwidth() / 2 + 10)
-      .attr("y", d => yScale(d.Median) - 10)
-      .attr("dy", "-0.7em")
-      .attr("visibility", "hidden")
-      .attr("text-anchor", "top")
-      .text(d => `Male Income: ${currencyFormatter(d.Median)}`)
-      .style("font-size", "0.7em")
-      .style("padding", "30px");
+// Add labels for male medians
+svg.selectAll("text.male-label")
+  .data(medianValuesMale)
+  .enter().append("text")
+  .attr("class", "male-label")
+  .attr("id", d => `male-label-${d.Year}`)
+  .attr("x", d => xScale(d.Year) + xScale.bandwidth() / 2 + 10) // Default x position
+  .attr("y", d => {
+    if (selectedOccupation === "Personal Care and Service Occupations" && d.Year === "2018") {
+      // Adjust y position for 2018
+      return yScale(d.Median) + 35; // Adjusted position for 2018
+    } else if (selectedOccupation === "Military Specific Occupations" && d.Year === "2017") {
+      // Adjust y position for Military Specific Occupations in 2017
+      return yScale(d.Median) - 5; // Adjusted position for 2017
+    } else {
+      return yScale(d.Median) + 10; // Default position for other years
+    }
+  })
+  .attr("text-anchor", "top")
+  .attr("dy", "-0.7em")
+  .attr("visibility", "hidden")
+  .text(d => `Male Income: ${currencyFormatter(d.Median)}`)
+  .style("font-size", "0.7em")
+  .style("padding", "30px");
 
-    // Add labels for female medians
-    svg.selectAll("text.female-label")
-      .data(medianValuesFemale)
-      .enter().append("text")
-      .attr("class", "female-label")
-      .attr("id", d => `female-label-${d.Year}`)
-      .attr("x", d => xScale(d.Year) + xScale.bandwidth() / 2 + 10)
-      .attr("y", d => yScale(d.Median) + 20)
-      .attr("text-anchor", "top")
-      .attr("dy", "-3.0em")
-      .attr("visibility", "hidden")
-      .text(d => `Female Income: ${currencyFormatter(d.Median)}`)
-      .style("font-size", "0.7em")
-      .style("padding", "30px");
+// Add labels for female medians
+svg.selectAll("text.female-label")
+  .data(medianValuesFemale)
+  .enter().append("text")
+  .attr("class", "female-label")
+  .attr("id", d => `female-label-${d.Year}`)
+  .attr("x", d => xScale(d.Year) + xScale.bandwidth() / 2 + 10) // Default x position
+  .attr("y", d => {
+    if (selectedOccupation === "Personal Care and Service Occupations" && d.Year === "2018") {
+      // Adjust y position for 2018
+      return yScale(d.Median) + 10; // Adjusted position for 2018
+    } else if (selectedOccupation === "Military Specific Occupations" && d.Year === "2017") {
+      // Adjust y position for Military Specific Occupations in 2017
+      return yScale(d.Median) + 55; // Adjusted position for 2017
+    } else {
+      return yScale(d.Median) + 20; // Default position for other years
+    }
+  })
+  .attr("text-anchor", "top")
+  .attr("dy", "-3.0em")
+  .attr("visibility", "hidden")
+  .text(d => `Female Income: ${currencyFormatter(d.Median)}`)
+  .style("font-size", "0.7em")
+  .style("padding", "30px");
+
 
     // Draw X-axis
     svg.append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(xScale))
-      .style("font-size", ".7em");
+      .style("font-size", ".7em")
+      .selectAll("text")
+      .style("font-family", '"Kode Mono", monospace');
 
     // X-axis label
     svg.append("text")
@@ -197,13 +220,16 @@ export function drawLinePlot(data, selectedOccupation) {
 
     // Draw Y-axis
     svg.append("g")
-      .call(d3.axisLeft(yScale))
-      .style("font-size", "0.7em");
+    .call(d3.axisLeft(yScale).tickFormat(d3.format("$,.0f")))
+    .style("font-size", "0.7em")
+    .selectAll("text")
+    .style("font-family", '"Kode Mono", monospace');
+
 
     // Y-axis label
     svg.append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left - 50)
+      .attr("y", 0 - margin.left - 60)
       .attr("x", 0 - height / 2)
       .attr("dy", "1em")
       .style("text-anchor", "middle")

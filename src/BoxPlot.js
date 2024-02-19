@@ -124,7 +124,7 @@ export function drawBoxPlot(data, selectedOccupation) {
           const scatterGroup = svg.append('g').attr('class', 'scatter-group');
 
           // Draw scatter plot
-          var jitterWidth = 60;
+          var jitterWidth = boxWidth;
           values.forEach(d => {
             if (d.STANDARDINCOME >= yScale.domain()[0] && d.STANDARDINCOME <= yScale.domain()[1]){
               let x_val = xScale(year) + (gender === "1" ? 0 : boxWidth) + Math.random() * jitterWidth;
@@ -136,6 +136,7 @@ export function drawBoxPlot(data, selectedOccupation) {
                 .attr('class', 'scatter-point')
                 .attr('data-year', year)
                 .attr('fill', colorScale(gender))
+                .attr('stroke', 'white')
                 .attr('visibility', 'hidden');
               }
         });
@@ -159,7 +160,9 @@ export function drawBoxPlot(data, selectedOccupation) {
     svg.append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(xScale))
-      .style("font-size", ".7em");
+      .style("font-size", ".7em")
+      .selectAll("text")
+      .style("font-family", '"Kode Mono", monospace');
 
     // X-axis label
     svg.append("text")
@@ -171,13 +174,15 @@ export function drawBoxPlot(data, selectedOccupation) {
 
     // Draw Y-axis
     svg.append("g")
-      .call(d3.axisLeft(yScale))
-      .style("font-size", "0.7em");
+    .call(d3.axisLeft(yScale).tickFormat(d3.format("$,.0f")))
+      .style("font-size", "0.7em")
+      .selectAll("text")
+      .style("font-family", '"Kode Mono", monospace');
 
     // Y-axis label
     svg.append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left - 50)
+      .attr("y", 0 - margin.left - 60)
       .attr("x", 0 - height / 2)
       .attr("dy", "1em")
       .style("text-anchor", "middle")
