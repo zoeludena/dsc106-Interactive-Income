@@ -350,6 +350,25 @@ function drawLine(svg, data, group, width, height) {
     font-size: 13px; /* Adjust the font size for the team members' names */
   }
 
+  .readme {
+  position: absolute;
+  top: 700px; /* Adjust the position from the bottom as needed */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%);
+  font-family: "Kode Mono", monospace; /* Set the font family */
+  width: 80%;
+}
+
+  .readme p {
+    margin: 0;
+    font-size: 0.8em; /* Adjust the font size as needed */
+  }
+
+  .readme p:first-child {
+    font-weight: bold; /* Make the team name bold */
+  }
+
+
   /* .slider-container {
     display: flex;
     flex-direction: row;
@@ -430,5 +449,10 @@ function drawLine(svg, data, group, width, height) {
   </div>
 <!-- {/if} -->
 
+<div class="readme">
+  <!-- Add your words here -->
+  <p>Our Writeup:</p>
+  <p>In our interactive plot we explore the differences between male and female total pre-tax personal income. We were curious to know if the wage gap among different occupational groups were improving over time. To better explain our graphs it is important to first understand where our data came from. We collected our data from the <a href= 'https://usa.ipums.org/usa/'>Integrated Public Use Microdata Series (IPUMS) USA</a>. IPUMS is a reputable data source, as they collect and preserve U.S. census microdata. Our sample of data runs from the years 2017 to 2021, and contains the following information from census respondents: the number of hours worked, age, sex, marital status, income as an individual, income as a family, and the state the respondent lived in. Originally, our data had many different, specific occupations, so we decided to group the data based on the categories occupations were kept in by IPUMS. IPUMS updated how these groups were kept in 2018, so we had to make decisions to overlap them as specifically as possible: <a href = "https://usa.ipums.org/usa/volii/occ_acs.shtml">2000 to 2017 data</a> and <a href = "https://usa.ipums.org/usa/volii/occ2018.shtml">2018 onwards</a>. Some other cleaning Zoe did to prepare our data for the interactive visualization was replace missing values with NaNs, filter the data to only contain full-time workers (40 hours and more), and perform exploratory data analysis on the total pre-tax personal income, total pre-tax money income earned by a family from all sources, number of children, and sex. Zoe decided to standardize the income by taking the number of hours worked and the respondent’s income then making it as if they had only worked forty hours on average a week and were paid for those hours (original total pre-tax personal income divided by average number of hours worked then multiplied by forty).</p>
+</div>
 
 </div>
