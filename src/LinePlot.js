@@ -164,7 +164,7 @@ svg.selectAll("text.male-label")
       return yScale(d.Median) + 35; // Adjusted position for 2018
     } else if (selectedOccupation === "Military Specific Occupations" && d.Year === "2017") {
       // Adjust y position for Military Specific Occupations in 2017
-      return yScale(d.Median) + 30; // Adjusted position for 2017
+      return yScale(d.Median) - 5; // Adjusted position for 2017
     } else {
       return yScale(d.Median) + 10; // Default position for other years
     }
@@ -189,7 +189,7 @@ svg.selectAll("text.female-label")
       return yScale(d.Median) + 10; // Adjusted position for 2018
     } else if (selectedOccupation === "Military Specific Occupations" && d.Year === "2017") {
       // Adjust y position for Military Specific Occupations in 2017
-      return yScale(d.Median) + 20; // Adjusted position for 2017
+      return yScale(d.Median) + 55; // Adjusted position for 2017
     } else {
       return yScale(d.Median) + 20; // Default position for other years
     }
