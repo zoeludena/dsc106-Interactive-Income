@@ -202,12 +202,13 @@ svg.selectAll("text.female-label")
   .style("padding", "30px");
 
 
-
     // Draw X-axis
     svg.append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(xScale))
-      .style("font-size", ".7em");
+      .style("font-size", ".7em")
+      .selectAll("text")
+      .style("font-family", '"Kode Mono", monospace');
 
     // X-axis label
     svg.append("text")
@@ -219,13 +220,16 @@ svg.selectAll("text.female-label")
 
     // Draw Y-axis
     svg.append("g")
-      .call(d3.axisLeft(yScale))
-      .style("font-size", "0.7em");
+    .call(d3.axisLeft(yScale).tickFormat(d3.format("$,.0f")))
+    .style("font-size", "0.7em")
+    .selectAll("text")
+    .style("font-family", '"Kode Mono", monospace');
+
 
     // Y-axis label
     svg.append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left - 50)
+      .attr("y", 0 - margin.left - 60)
       .attr("x", 0 - height / 2)
       .attr("dy", "1em")
       .style("text-anchor", "middle")

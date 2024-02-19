@@ -128,12 +128,16 @@
     svg.append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(xScale))
-      .style("font-size", ".7em");
+      .style("font-size", ".7em")
+      .selectAll("text")
+      .style("font-family", '"Kode Mono", monospace');
 
     // Draw y axis
     svg.append("g")
       .call(d3.axisLeft(yScale).tickFormat(d3.format("$,.0f"))) // Format y-axis ticks as currency
-      .style("font-size", "0.7em");
+      .style("font-size", "0.7em")
+      .selectAll("text")
+      .style("font-family", '"Kode Mono", monospace');
 
     // Labels
     svg.append("text")
@@ -145,7 +149,7 @@
 
     svg.append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left - 50)
+      .attr("y", 0 - margin.left - 60)
       .attr("x", 0 - height / 2)
       .attr("dy", "1em")
       .style("text-anchor", "middle")
