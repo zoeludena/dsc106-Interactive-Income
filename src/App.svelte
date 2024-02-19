@@ -359,7 +359,7 @@ function drawLine(svg, data, group, width, height) {
   <div id="my_dataviz"></div>
 
 <!-- Slider container -->
-<div class="slider-container" style="{selectedGroup !== 'All Groups' ? 'display: flex; flex-direction: column; align-items: center; position: absolute; top: calc(90vh); left: 57%; transform: translateX(-50%);' : 'display: none;'}">
+<div class="slider-container" style="{selectedGroup !== 'All Groups' ? 'display: flex; flex-direction: column; align-items: center; position: absolute; top: calc(90vh); left: 50%; transform: translateX(-50%);' : 'display: none;'}">
   <div class="slider" style="{selectedGroup !== 'All Groups' ? 'display: block; width: 200px;' : 'display: none;'}">
     <input type="range" min="0" max="1" step="1" bind:value={showLinePlot} on:input={togglePlot}>
   </div>
