@@ -331,7 +331,7 @@ function drawLine(svg, data, group, width, height) {
 
   .team-info {
     position: absolute;
-    bottom: -200px;
+    bottom: -380px;
     right: 50px;
     /* font-family: 'Times New Roman', Times, serif; Set the font for the team info */
   }
@@ -417,14 +417,12 @@ function drawLine(svg, data, group, width, height) {
   </div>
 
 <!-- Team name and names -->
-{#if selectedGroup === 'All Groups'}
+<!-- {#if selectedGroup === 'All Groups'} -->
   <div class="team-info">
-    <p>Graphic Girls</p>
-    <p>Anastasiya Markova</p>
-    <p>Maryam Almahasnah</p>
-    <p>Zoe Ludena</p>
+    <p style="text-align: center;">Graphic Girls</p>
+    <p>Anastasiya Markova, Maryam Almahasnah, Zoe Ludena</p>
   </div>
-{/if}
+<!-- {/if} -->
 
 
 </div>
