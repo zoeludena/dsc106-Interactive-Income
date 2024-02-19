@@ -280,7 +280,7 @@ function drawLine(svg, data, group, width, height) {
 
   #dropdown {
     position: absolute;
-    /* font-family: 'Times New Roman', Times, serif; */
+    font-family: "Kode Mono", monospace;
     top: 0;
     left: 0;
   }
