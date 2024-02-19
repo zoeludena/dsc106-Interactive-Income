@@ -9,22 +9,21 @@
   let selectedGroup = "All Groups";
   let svgWidth = 0;
   let svgHeight = 0;
-  let showLinePlot = 0;
+  let showLinePlot = false;
 
 
-  function togglePlot(event) {
-    if (typeof event.target !== 'undefined') {
-      showLinePlot = event.target.value;
-    }
-    else {
-      showLinePlot = event;
-    }
-    let cond = showLinePlot > 0 ? false: true;
-    //showLinePlot = !showLinePlot;
+  function togglePlot() {
+    // if (typeof event.target !== 'undefined') {
+    //   showLinePlot = event.target.value;
+    // }
+    // else {
+    //   showLinePlot = event;
+    // }
+    showLinePlot = !showLinePlot;
     if (selectedGroup === 'All Groups') {
       allGroups();
     } else {
-      if (cond) {
+      if (showLinePlot) {
         drawLinePlot(data, selectedGroup);
       } else {
         drawBoxPlot(data, selectedGroup);
@@ -396,7 +395,7 @@ function drawLine(svg, data, group, width, height) {
       showLinePlot = 0;
       allGroups();
     } else {
-      showLinePlot = 0;
+      showLinePlot = true;
       drawLinePlot(data, selectedGroup);
     }
   }}>
