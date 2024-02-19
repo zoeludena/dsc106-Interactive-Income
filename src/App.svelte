@@ -349,8 +349,8 @@ function drawLine(svg, data, group, width, height) {
   }
 
   .readme {
-  position: fixed;
-  bottom: -150%; /* Adjust the position from the bottom as needed */
+  position: absolute;
+  bottom: -625px; /* Adjust the position from the bottom as needed */
   left: 50%; /* Center horizontally */
   transform: translateX(-50%);
   font-family: "Kode Mono", monospace; /* Set the font family */
