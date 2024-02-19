@@ -124,7 +124,7 @@ export function drawBoxPlot(data, selectedOccupation) {
           const scatterGroup = svg.append('g').attr('class', 'scatter-group');
 
           // Draw scatter plot
-          var jitterWidth = 60;
+          var jitterWidth = boxWidth;
           values.forEach(d => {
             if (d.STANDARDINCOME >= yScale.domain()[0] && d.STANDARDINCOME <= yScale.domain()[1]){
               let x_val = xScale(year) + (gender === "1" ? 0 : boxWidth) + Math.random() * jitterWidth;
@@ -136,6 +136,7 @@ export function drawBoxPlot(data, selectedOccupation) {
                 .attr('class', 'scatter-point')
                 .attr('data-year', year)
                 .attr('fill', colorScale(gender))
+                .attr('stroke', 'white')
                 .attr('visibility', 'hidden');
               }
         });
