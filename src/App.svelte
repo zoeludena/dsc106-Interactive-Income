@@ -316,7 +316,7 @@ function drawLine(svg, data, group, width, height) {
     font-size: 13px; /* Adjust the font size for the team members' names */
   }
 
-  .slider-container {
+  /* .slider-container {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -333,7 +333,7 @@ function drawLine(svg, data, group, width, height) {
     display: flex;
     justify-content: space-between;
     margin-left: 10px;
-  }
+  } */
 
 </style>
 <div id="container">
