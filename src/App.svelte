@@ -330,9 +330,10 @@ function drawLine(svg, data, group, width, height) {
   }
 
   .team-info {
-    position: absolute;
-    bottom: -380px;
-    right: 50px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding-right: 30px;
     /* font-family: 'Times New Roman', Times, serif; Set the font for the team info */
   }
 
