@@ -323,7 +323,7 @@ function drawLine(svg, data, group, width, height) {
 
   .legend {
   position: fixed;
-  top: 40px; /* Adjust bottom position as needed */
+  bottom: 15px; /* Adjust bottom position as needed */
   left: 0; /* Adjust left position as needed */
   font-size: x-small;
   padding-left: 110px;
