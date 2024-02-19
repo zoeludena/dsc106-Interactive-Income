@@ -9,7 +9,7 @@
   let selectedGroup = "All Groups";
   let svgWidth = 0;
   let svgHeight = 0;
-  let showLinePlot = false;
+  let showLinePlot = true;
 
 
   function togglePlot() {
@@ -40,7 +40,7 @@
       if (selectedGroup === 'All Groups') {
         allGroups();
       } else {
-        if (showLinePlot === 0) {
+        if (showLinePlot) {
           drawLinePlot(data, selectedGroup);
         } else {
           drawBoxPlot(data, selectedGroup);
@@ -217,6 +217,7 @@ function drawLine(svg, data, group, width, height) {
         })
         .on("click", function() {
           selectedGroup = group;
+          showLinePlot = true;
           drawLinePlot(data, group);
           updateSvgDimensions();
         })
@@ -253,6 +254,7 @@ function drawLine(svg, data, group, width, height) {
         })
         .on("click", function() {
           selectedGroup = group;
+          showLinePlot = true;
             drawLinePlot(data, group);
             updateSvgDimensions();
         })
