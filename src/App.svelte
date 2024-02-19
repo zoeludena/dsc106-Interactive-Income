@@ -273,8 +273,8 @@ function drawLine(svg, data, group, width, height) {
 
   #container {
     position: relative;
-    min-height: 100vh;
-    padding: 20px; /* Add padding for better spacing */
+    min-height: 40vh;
+    padding: 10px; /* Add padding for better spacing */
     font-family: "Kode Mono", monospace;
   }
 
@@ -287,15 +287,15 @@ function drawLine(svg, data, group, width, height) {
 
   #my_dataviz {
     /* font-family: 'Times New Roman', Times, serif; */
-    width: calc(100% - 140px);
-    height: 100vh;
+    width: calc(100% - 200px);
+    height: 60vh;
     float: left;
     margin-top: 10px;
   }
 
   .legend {
     position: absolute;
-    bottom: 20px; /* Adjust bottom position as needed */
+    bottom: -140px; /* Adjust bottom position as needed */
     left: 90px; /* Adjust left position as needed */
     transform: translate(-50%, 0); /* Center the legend horizontally */
     font-size: x-small;
@@ -303,7 +303,7 @@ function drawLine(svg, data, group, width, height) {
 
   .team-info {
     position: absolute;
-    bottom: -30px;
+    bottom: -200px;
     right: 50px;
     /* font-family: 'Times New Roman', Times, serif; Set the font for the team info */
   }
