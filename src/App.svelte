@@ -416,12 +416,15 @@ function drawLine(svg, data, group, width, height) {
     </svg>
   </div>
 
-  <!-- Team name and names -->
+<!-- Team name and names -->
+{#if selectedGroup === 'All Groups'}
   <div class="team-info">
     <p>Graphic Girls</p>
     <p>Anastasiya Markova</p>
     <p>Maryam Almahasnah</p>
     <p>Zoe Ludena</p>
   </div>
+{/if}
+
 
 </div>
