@@ -359,13 +359,14 @@ function drawLine(svg, data, group, width, height) {
   <div id="my_dataviz"></div>
 
 <!-- Button -->
-    <button on:click={togglePlot} style="{selectedGroup !== 'All Groups' ? 'display: block;' : 'display: none;'}">
-    {#if showLinePlot}
-      Show Box Plot
-    {:else}
-      Show Line Plot
-    {/if}
-  </button>
+<button on:click={togglePlot} style="{selectedGroup !== 'All Groups' ? 'display: block; font-family: \'Kode Mono\', monospace;' : 'display: none;'}">
+  {#if showLinePlot}
+    Show Box Plot
+  {:else}
+    Show Line Plot
+  {/if}
+</button>
+
 
 <!-- Slider container -->
 <!-- <div class="slider-container" style="{selectedGroup !== 'All Groups' ? 'display: flex; flex-direction: column; align-items: center; position: absolute; top: calc(90vh); left: 54.25%; transform: translateX(-50%);' : 'display: none;'}">
