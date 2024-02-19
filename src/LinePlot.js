@@ -151,35 +151,57 @@ export function drawLinePlot(data, selectedOccupation) {
     });
 
 
-    // Add labels for male medians
-    svg.selectAll("text.male-label")
-      .data(medianValuesMale)
-      .enter().append("text")
-      .attr("class", "male-label")
-      .attr("id", d => `male-label-${d.Year}`)
-      .attr("x", d => xScale(d.Year) + xScale.bandwidth() / 2 + 10)
-      .attr("y", d => yScale(d.Median) - 10)
-      .attr("dy", "-0.7em")
-      .attr("visibility", "hidden")
-      .attr("text-anchor", "top")
-      .text(d => `Male Income: ${currencyFormatter(d.Median)}`)
-      .style("font-size", "0.7em")
-      .style("padding", "30px");
+// Add labels for male medians
+svg.selectAll("text.male-label")
+  .data(medianValuesMale)
+  .enter().append("text")
+  .attr("class", "male-label")
+  .attr("id", d => `male-label-${d.Year}`)
+  .attr("x", d => xScale(d.Year) + xScale.bandwidth() / 2 + 10) // Default x position
+  .attr("y", d => {
+    if (selectedOccupation === "Personal Care and Service Occupations" && d.Year === "2018") {
+      // Adjust y position for 2018
+      return yScale(d.Median) + 35; // Adjusted position for 2018
+    } else if (selectedOccupation === "Military Specific Occupations" && d.Year === "2017") {
+      // Adjust y position for Military Specific Occupations in 2017
+      return yScale(d.Median) + 30; // Adjusted position for 2017
+    } else {
+      return yScale(d.Median) + 10; // Default position for other years
+    }
+  })
+  .attr("text-anchor", "top")
+  .attr("dy", "-0.7em")
+  .attr("visibility", "hidden")
+  .text(d => `Male Income: ${currencyFormatter(d.Median)}`)
+  .style("font-size", "0.7em")
+  .style("padding", "30px");
 
-    // Add labels for female medians
-    svg.selectAll("text.female-label")
-      .data(medianValuesFemale)
-      .enter().append("text")
-      .attr("class", "female-label")
-      .attr("id", d => `female-label-${d.Year}`)
-      .attr("x", d => xScale(d.Year) + xScale.bandwidth() / 2 + 10)
-      .attr("y", d => yScale(d.Median) + 20)
-      .attr("text-anchor", "top")
-      .attr("dy", "-3.0em")
-      .attr("visibility", "hidden")
-      .text(d => `Female Income: ${currencyFormatter(d.Median)}`)
-      .style("font-size", "0.7em")
-      .style("padding", "30px");
+// Add labels for female medians
+svg.selectAll("text.female-label")
+  .data(medianValuesFemale)
+  .enter().append("text")
+  .attr("class", "female-label")
+  .attr("id", d => `female-label-${d.Year}`)
+  .attr("x", d => xScale(d.Year) + xScale.bandwidth() / 2 + 10) // Default x position
+  .attr("y", d => {
+    if (selectedOccupation === "Personal Care and Service Occupations" && d.Year === "2018") {
+      // Adjust y position for 2018
+      return yScale(d.Median) + 10; // Adjusted position for 2018
+    } else if (selectedOccupation === "Military Specific Occupations" && d.Year === "2017") {
+      // Adjust y position for Military Specific Occupations in 2017
+      return yScale(d.Median) + 20; // Adjusted position for 2017
+    } else {
+      return yScale(d.Median) + 20; // Default position for other years
+    }
+  })
+  .attr("text-anchor", "top")
+  .attr("dy", "-3.0em")
+  .attr("visibility", "hidden")
+  .text(d => `Female Income: ${currencyFormatter(d.Median)}`)
+  .style("font-size", "0.7em")
+  .style("padding", "30px");
+
+
 
     // Draw X-axis
     svg.append("g")
