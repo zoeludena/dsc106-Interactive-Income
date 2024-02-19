@@ -173,7 +173,7 @@ export function drawBoxPlot(data, selectedOccupation) {
 
     // Draw Y-axis
     svg.append("g")
-      .call(d3.axisLeft(yScale))
+    .call(d3.axisLeft(yScale).tickFormat(d3.format("$,.0f")))
       .style("font-size", "0.7em")
       .selectAll("text")
       .style("font-family", '"Kode Mono", monospace');
