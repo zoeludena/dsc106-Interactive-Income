@@ -394,6 +394,14 @@ function drawLine(svg, data, group, width, height) {
     font-weight: bold; /* Make the team name bold */
   }
 
+  .help {
+    position: absolute;
+    top: 0;
+    right:0;
+    /* padding-top: 50px; */
+    padding-right: 30px;
+  }
+
 
   /* .slider-container {
     display: flex;
@@ -482,6 +490,10 @@ function drawLine(svg, data, group, width, height) {
     <p style="text-align: center;">Graphic Girls</p>
     <p>Anastasiya Markova, Maryam Almahasnah, Zoe Ludena</p>
   </div> -->
+
+  <div class = "help">
+    <p>Overlap? Try "Ctrl -" or "Cmd -"</p>
+  </div>
 
   {#if selectedGroup !== "All Groups"}
   <div class="team-info-selected">
