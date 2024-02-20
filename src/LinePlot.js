@@ -166,7 +166,11 @@ svg.selectAll("text.male-label")
     } else if (selectedOccupation === "Military Specific Occupations" && d.Year === "2017") {
       // Adjust y position for Military Specific Occupations in 2017
       return yScale(d.Median) - 5; // Adjusted position for 2017
-    } else {
+    } else if (selectedOccupation === "Community and Social Services Occupations" && d.Year === "2017") {
+      return yScale(d.Median) - 10;
+    }  else if (selectedOccupation === "Architecture and Engineering Occupations" && d.Year === "2019") {
+      return yScale(d.Median) - 10;
+    }else {
       return yScale(d.Median) + 10; // Default position for other years
     }
   })
@@ -191,8 +195,12 @@ svg.selectAll("text.female-label")
     } else if (selectedOccupation === "Military Specific Occupations" && d.Year === "2017") {
       // Adjust y position for Military Specific Occupations in 2017
       return yScale(d.Median) + 55; // Adjusted position for 2017
-    } else {
-      return yScale(d.Median) + 20; // Default position for other years
+    } else if (selectedOccupation === "Community and Social Services Occupations" && d.Year === "2017") {
+      return yScale(d.Median) + 30;
+    }  else if (selectedOccupation === "Life, Physical, and Social Science Occupations" && d.Year === "2018") {
+      return yScale(d.Median) + 40;
+    }else {
+      return yScale(d.Median) + 30; // Default position for other years
     }
   })
   .attr("text-anchor", "top")
