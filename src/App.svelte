@@ -331,7 +331,7 @@ function drawLine(svg, data, group, width, height) {
   top: 0; /* Adjust bottom position as needed */
   right: 0; /* Adjust left position as needed */
   font-size: small;
-  padding-top: 30px;
+  padding-top: 50px;
   padding-right: 30px;
 }
 
@@ -457,7 +457,7 @@ function drawLine(svg, data, group, width, height) {
     <span>Box Plot</span>
   </div>
 </div> -->
-{#if selectedGroup !== "All Groups"}
+<!-- {#if selectedGroup !== "All Groups"}
   <div class="legend-selected">
     <svg width="100" height="70">
       <rect x="10" y="10" width="20" height="20" fill="#0066FF"></rect>
@@ -466,7 +466,7 @@ function drawLine(svg, data, group, width, height) {
       <text x="40" y="45" dy="0.75em">Female</text>
     </svg>
   </div>
-  {:else}
+  {:else} -->
   <div class="legend">
     <svg width="100" height="70">
       <rect x="10" y="10" width="20" height="20" fill="#0066FF"></rect>
@@ -475,7 +475,7 @@ function drawLine(svg, data, group, width, height) {
       <text x="40" y="45" dy="0.75em">Female</text>
     </svg>
   </div>
-  {/if}
+  <!-- {/if} -->
 
 <!-- Team name and names -->
   <!-- <div class="team-info">
