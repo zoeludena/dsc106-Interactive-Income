@@ -267,10 +267,6 @@ function drawLine(svg, data, group, width, height) {
         });
 }
 
-function getTeamInfoClass() {
-    return selectedGroup !== "All Groups" ? "team-info-selected" : "team-info";
-  }
-
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -333,6 +329,14 @@ function getTeamInfoClass() {
   .legend {
   position: absolute;
   bottom: -500px; /* Adjust bottom position as needed */
+  left: 0; /* Adjust left position as needed */
+  font-size: x-small;
+  padding-left: 110px;
+}
+
+.legend-selected {
+  position: fixed;
+  bottom: 0; /* Adjust bottom position as needed */
   left: 0; /* Adjust left position as needed */
   font-size: x-small;
   padding-left: 110px;
@@ -444,7 +448,16 @@ function getTeamInfoClass() {
     <span>Box Plot</span>
   </div>
 </div> -->
-
+{#if selectedGroup !== "All Groups"}
+  <div class="legend-selected">
+    <svg width="100" height="70">
+      <rect x="10" y="10" width="20" height="20" fill="#0066FF"></rect>
+      <text x="40" y="15" dy="0.75em">Male</text>
+      <rect x="10" y="40" width="20" height="20" fill="#FF6699"></rect>
+      <text x="40" y="45" dy="0.75em">Female</text>
+    </svg>
+  </div>
+  {:else}
   <div class="legend">
     <svg width="100" height="70">
       <rect x="10" y="10" width="20" height="20" fill="#0066FF"></rect>
@@ -453,6 +466,7 @@ function getTeamInfoClass() {
       <text x="40" y="45" dy="0.75em">Female</text>
     </svg>
   </div>
+  {/if}
 
 <!-- Team name and names -->
   <!-- <div class="team-info">
@@ -460,10 +474,17 @@ function getTeamInfoClass() {
     <p>Anastasiya Markova, Maryam Almahasnah, Zoe Ludena</p>
   </div> -->
 
-  <div class={getTeamInfoClass()}>
+  {#if selectedGroup !== "All Groups"}
+  <div class="team-info-selected">
     <p style="text-align: center;">Graphic Girls</p>
     <p>Anastasiya Markova, Maryam Almahasnah, Zoe Ludena</p>
   </div>
+  {:else}
+  <div class="team-info">
+    <p style="text-align: center;">Graphic Girls</p>
+    <p>Anastasiya Markova, Maryam Almahasnah, Zoe Ludena</p>
+  </div>
+  {/if}
 
 
 {#if selectedGroup === 'All Groups'}
