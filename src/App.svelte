@@ -442,13 +442,13 @@ function drawLine(svg, data, group, width, height) {
   </div>
 
 <!-- Team name and names -->
-<!-- {#if selectedGroup === 'All Groups'} -->
   <div class="team-info">
     <p style="text-align: center;">Graphic Girls</p>
     <p>Anastasiya Markova, Maryam Almahasnah, Zoe Ludena</p>
   </div>
-<!-- {/if} -->
 
+
+{#if selectedGroup === 'All Groups'}
 <div class="readme">
   <!-- Add your words here -->
   <p>Our Writeup:</p>
@@ -464,4 +464,5 @@ function drawLine(svg, data, group, width, height) {
   <p>Our group worked together to come up with our question and explored many different datasets. We settled on Anastasiya's find of IPUMS because they allowed us to customize our dataset, which became tailored to answer our wage gap inquiries. Anastasiya worked on the initial research of the data and creation of box plots and interactivity features within the box plots. Since there is no box plot feature, she had to calculate everything and draw each line by hand, which took a little bit of time. The creation of box plots probably took around 8 hours. She also made sure that the transitions between plots were working. She worked on transitions between box plots and line plots, as well as the transition from all plots to line plots. This was a bit of a trial and error process and took an additional 5 hours. The most confusing thing was to make the graph responsive to windows of different sizes, but once that was done the rest of Anastasiya's work was just time consuming rather than challenging. This took about 6 hours overall as well. Zoe spent about eight hours performing EDA and cleaning the data. She also spent about fifteen hours getting the dropdown menu to work, setting up the line plot drawing function, setting up labels/axes/keys, making the "All Occupations" line plot, adjusting small elements (like positioning), having the drop down menu scale as the page does horizontally, and choosing colors for the graph. She also worked on this writeup for about an hour and a half. Zoe thought the thing that took the most time was setting up the line plot drawing functions. It took a lot of time to figure out the correct spacing for everything and how she could get D3 to code it together for each different group. She ended up having to code scatter plots first then connecting those circles with lines then making the circles really small. Maryam changed the drop down menu to make the occupations come up in alphabetical order (but it should still have all occupations as the first option). She also changed the font for everything on the visualization so that it is more consistent (we ended up going with Anastasiya's choice of font). She also made it so that the y-axis would have the incomes as currencies. Maryam also added the team name and team members' names and scaled the legend in addition to the team name/memebers names so that they do not overlap with the graph. There was a lot of back and forth with this because it looked like it was overlapping and not tidy on Maryam's computer but different and more consistent on others' computers, which is why it took a fair amount of time to do - about 5-6 hours total. She attempted to solve the problem of the overlapping labels for occupations in certain years that had a very similar median because it was difficult to read; this took several hours, but Maryam was unsuccessful at solving the problem - Zoe was then able to figure it out and solve the problem. Maryam also changed the size of the overall graph to make it smaller because we thought it would be better with less overlapping. Maryam also spent some time editing/proofreading this writeup. Overall, the part that took the most time was probably figuring out how the labels can come up without overlapping on top of each other.</p>
   <br>
 </div>
+{/if}
 </div>
