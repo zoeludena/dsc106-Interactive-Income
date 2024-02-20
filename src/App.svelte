@@ -267,6 +267,10 @@ function drawLine(svg, data, group, width, height) {
         });
 }
 
+function getTeamInfoClass() {
+    return selectedGroup !== "All Groups" ? "team-info-selected" : "team-info";
+  }
+
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -334,9 +338,18 @@ function drawLine(svg, data, group, width, height) {
   padding-left: 110px;
 }
 
+
   .team-info {
     position: absolute;
     bottom: -500px;
+    right: 0;
+    padding-right: 30px;
+    /* font-family: 'Times New Roman', Times, serif; Set the font for the team info */
+  }
+
+  .team-info-selected {
+    position: fixed;
+    bottom: 0;
     right: 0;
     padding-right: 30px;
     /* font-family: 'Times New Roman', Times, serif; Set the font for the team info */
@@ -442,7 +455,12 @@ function drawLine(svg, data, group, width, height) {
   </div>
 
 <!-- Team name and names -->
-  <div class="team-info">
+  <!-- <div class="team-info">
+    <p style="text-align: center;">Graphic Girls</p>
+    <p>Anastasiya Markova, Maryam Almahasnah, Zoe Ludena</p>
+  </div> -->
+
+  <div class={getTeamInfoClass()}>
     <p style="text-align: center;">Graphic Girls</p>
     <p>Anastasiya Markova, Maryam Almahasnah, Zoe Ludena</p>
   </div>
