@@ -335,13 +335,13 @@ function drawLine(svg, data, group, width, height) {
   padding-right: 30px;
 }
 
-.legend-selected {
-  position: fixed;
-  bottom: 0; /* Adjust bottom position as needed */
-  left: 0; /* Adjust left position as needed */
-  font-size: small;
-  padding-left: 110px;
-}
+/* .legend-selected { */
+  /* position: fixed; */
+  /* bottom: 0; Adjust bottom position as needed */
+  /* left: 0; Adjust left position as needed */
+  /* font-size: small; */
+  /* padding-left: 110px; */
+/* } */
 
 
   .team-info {
