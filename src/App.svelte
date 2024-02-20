@@ -493,7 +493,7 @@ function drawLine(svg, data, group, width, height) {
 
   {#if selectedGroup === "All Groups"}
   <div class = "help">
-    <p>Overlap? Try "Ctrl -" or "Cmd -"</p>
+    <p>Overlap? Try "Ctrl -"/"Ctrl +" or "Cmd -"/"Cmd +"</p>
   </div>
   {/if}
 
