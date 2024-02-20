@@ -67,7 +67,7 @@ export function drawBoxPlot(data, selectedOccupation) {
     var maxValue = d3.max([...medianValuesMale, ...medianValuesFemale], d => d.Max);
     // console.log(minValue, maxValue)
     var yScale = d3.scaleLinear()
-      .domain([minValue, maxValue])
+      .domain([0, maxValue])
       .range([height, 0]);
 
     groupedData.forEach((genderData, year) => {

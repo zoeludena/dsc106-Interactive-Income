@@ -65,7 +65,8 @@ export function drawLinePlot(data, selectedOccupation) {
 
     // Set up Y scale based on the minimum value with a 1000 offset
     var yScale = d3.scaleLinear()
-      .domain([Math.max(0, minValue - 3000), d3.max([...medianValuesMale, ...medianValuesFemale], d => d.Median)])
+      .domain([0, d3.max([...medianValuesMale, ...medianValuesFemale], d => d.Median)])
+      //.domain([Math.max(0, minValue - 3000), d3.max([...medianValuesMale, ...medianValuesFemale], d => d.Median)])
       .range([height, 0]);
     
     // Sort the data based on the year
