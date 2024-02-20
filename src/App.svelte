@@ -330,7 +330,7 @@ function drawLine(svg, data, group, width, height) {
   position: absolute;
   bottom: -500px; /* Adjust bottom position as needed */
   left: 0; /* Adjust left position as needed */
-  font-size: x-small;
+  font-size: small;
   padding-left: 110px;
 }
 
@@ -338,7 +338,7 @@ function drawLine(svg, data, group, width, height) {
   position: fixed;
   bottom: 0; /* Adjust bottom position as needed */
   left: 0; /* Adjust left position as needed */
-  font-size: x-small;
+  font-size: small;
   padding-left: 110px;
 }
 
