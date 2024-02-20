@@ -491,9 +491,11 @@ function drawLine(svg, data, group, width, height) {
     <p>Anastasiya Markova, Maryam Almahasnah, Zoe Ludena</p>
   </div> -->
 
+  {#if selectedGroup === "All Groups"}
   <div class = "help">
     <p>Overlap? Try "Ctrl -" or "Cmd -"</p>
   </div>
+  {/if}
 
   {#if selectedGroup !== "All Groups"}
   <div class="team-info-selected">
