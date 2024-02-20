@@ -367,6 +367,14 @@ function drawLine(svg, data, group, width, height) {
     font-size: 13px; /* Adjust the font size for the team members' names */
   }
 
+  .team-info-selected p:first-child {
+    font-weight: bold; /* Make the team name bold */
+  }
+
+  .team-info-selected p:nth-child(n+2) {
+    font-size: 13px; /* Adjust the font size for the team members' names */
+  }
+
   .readme {
   position: absolute;
   top: 950px; /* Adjust the position from the bottom as needed */
