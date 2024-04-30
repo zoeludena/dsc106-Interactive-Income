@@ -1,6 +1,6 @@
 # DSC 106 Interactive Income Project
 
-##<a href="https://zoeludena.github.io/dsc106-Interactive-Income/">Our Visualization</a>
+## <a href="https://zoeludena.github.io/dsc106-Interactive-Income/">Our Visualization</a>
 
 ## Created by Zoe Ludena, Anastasiya Markova, Maryam Almahasnah.
 
