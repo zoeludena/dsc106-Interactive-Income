@@ -497,17 +497,17 @@ function drawLine(svg, data, group, width, height) {
   </div>
   {/if}
 
-  {#if selectedGroup !== "All Groups"}
+  <!-- {#if selectedGroup !== "All Groups"} -->
   <div class="team-info-selected">
     <p style="text-align: center;">Graphic Girls</p>
     <p>Anastasiya Markova, Maryam Almahasnah, Zoe Ludena</p>
   </div>
-  {:else}
+  <!-- {:else}
   <div class="team-info">
     <p style="text-align: center;">Graphic Girls</p>
     <p>Anastasiya Markova, Maryam Almahasnah, Zoe Ludena</p>
   </div>
-  {/if}
+  {/if} -->
 
 
 <!-- {#if selectedGroup === 'All Groups'} -->
